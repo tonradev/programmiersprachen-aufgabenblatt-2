@@ -13,4 +13,12 @@ struct Vec2 {
     
 };
 
+// Free functions (ex. 2.4)
+
+Vec2 operator+(Vec2 const& u, Vec2 const& v);
+Vec2 operator-(Vec2 const& u, Vec2 const& v);
+Vec2 operator*(Vec2 const& u, float s);
+Vec2 operator*(float s, Vec2 const& v);
+Vec2 operator/(Vec2 const& u, float s);
+
 #endif // VEC2_HPP
