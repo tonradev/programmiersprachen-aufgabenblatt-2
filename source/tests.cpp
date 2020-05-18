@@ -25,6 +25,12 @@ Mat2 q{2.0f, -7.0f, 5.0f, 6.0f};
 Mat2 r{1.0f, 2.0f, 3.0f, 4.0f};
 Mat2 s{2.0f, 3.0f, 4.0f, 5.0f};
 
+Mat2 t{9.0f, 0.0f, 2.0f, 1.0f};
+Mat2 u{2.0f, -3.1f, 2.0f, 1.6f};
+
+Vec2 v{5.0f, 7.0f};
+Vec2 w{-0.7f, -4.5f};
+
 TEST_CASE("Struct Vec2 Test", "[Vec2]")
 {
 
@@ -96,7 +102,6 @@ TEST_CASE("Struct Mat2 Test", "[Mat2]")
   REQUIRE((p*q).e_01 == -15);
   REQUIRE((p*q).e_11 == -18);
 
-  // OPERATION FOR TEST OF FREE FUNCTION
   p*=q;
 
   REQUIRE(p.e_00 == 22);
@@ -110,7 +115,6 @@ TEST_CASE("Struct Mat2 Test", "[Mat2]")
   REQUIRE((r*s).e_01 == 22);
   REQUIRE((r*s).e_11 == 29);
 
-  // OPERATION FOR TEST OF FREE FUNCTION
   s*=r;
 
   REQUIRE(s.e_00 == 11);
@@ -118,6 +122,31 @@ TEST_CASE("Struct Mat2 Test", "[Mat2]")
   REQUIRE(s.e_01 == 19);
   REQUIRE(s.e_11 == 28);
 
+  Vec2 tv = t*v;
+
+  REQUIRE(tv.x == Approx(45));
+  REQUIRE(tv.y == Approx(17));
+
+  Mat2 t_inv = inverse(t);
+
+  REQUIRE(t_inv.e_00 == Approx(0.1111f).epsilon(0.0001));
+  REQUIRE(t_inv.e_10 == 0);
+  REQUIRE(t_inv.e_01 == Approx(-0.2222f).epsilon(0.0001));
+  REQUIRE(t_inv.e_11 == Approx(1.0f));
+
+  Mat2 t_transp = transpose(t);
+
+  REQUIRE(t_transp.e_00 == Approx(9.0f));
+  REQUIRE(t_transp.e_10 == Approx(2.0f));
+  REQUIRE(t_transp.e_01 == 0);
+  REQUIRE(t_transp.e_11 == Approx(1.0f));
+
+  Mat2 t_rot = make_rotation_mat2(1.57);
+
+  REQUIRE(t_rot.e_00 == Approx(0.000796f));
+  REQUIRE(t_rot.e_10 == Approx(-0.999f).epsilon(0.1));
+  REQUIRE(t_rot.e_01 == Approx(0.999f).epsilon(0.1));
+  REQUIRE(t_rot.e_11 == Approx(0.000796f));
 }
 
 int main(int argc, char *argv[])
