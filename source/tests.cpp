@@ -3,6 +3,8 @@
 #include "vec2.hpp"
 #include "mat2.hpp"
 #include "color.hpp"
+#include "circle.hpp"
+#include "rect.hpp"
 
 Vec2 a;
 Vec2 b{5.1f, -9.3f};
@@ -174,6 +176,10 @@ int main(int argc, char *argv[])
 
   g /= 2;
   k /= 0.5;
+
+  Circle c1{{1,1}, 0.5f};
+
+  Rect r1{{0,0},{1,1}};
 
   return Catch::Session().run(argc, argv);
 }
