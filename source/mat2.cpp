@@ -23,15 +23,11 @@ float Mat2::det() const{
 // Define free functions
 Mat2 operator*(Mat2 const& m1, Mat2 const& m2)
 {
-    return Mat2{(m1.e_00*m2.e_00 + m1.e_10*m2.e_01), (m1.e_00*m2.e_10 + m1.e_10*m2.e_11), (m1.e_01*m2.e_00 + m1.e_11*m2.e_01), (m1.e_01*m2.e_10 + m1.e_11*m2.e_11)};
+    Mat2 res = {m1};
+    return res*=m2;
 }
 
 Vec2 operator*(Mat2 const& m, Vec2 const& v)
-{
-    return Vec2{((m.e_00*v.x)+(m.e_10*v.y)), ((m.e_01*v.x)+(m.e_11*v.y))};
-}
-
-Vec2 operator*(Vec2 const& v, Mat2 const& m)
 {
     return Vec2{((m.e_00*v.x)+(m.e_10*v.y)), ((m.e_01*v.x)+(m.e_11*v.y))};
 }
