@@ -1,6 +1,7 @@
 #define CATCH_CONFIG_RUNNER
 #include <catch.hpp>
 #include "vec2.hpp"
+#include "mat2.hpp"
 
 Vec2 a;
 Vec2 b{5.1f, -9.3f};
@@ -19,7 +20,10 @@ Vec2 m{7.4f, 5.0f};
 Vec2 n{10.1f, 4.9f};
 Vec2 o{0.3f, 1.7f};
 
-
+Mat2 p{1.0f, 4.0f, 0.0f, -3.0f};
+Mat2 q{2.0f, -7.0f, 5.0f, 6.0f};
+Mat2 r{1.0f, 2.0f, 3.0f, 4.0f};
+Mat2 s{2.0f, 3.0f, 4.0f, 5.0f};
 
 TEST_CASE("Struct Vec2 Test", "[Vec2]")
 {
@@ -80,6 +84,40 @@ TEST_CASE("Struct Vec2 Test", "[Vec2]")
 
   REQUIRE((n/1.5).x == Approx(6.733f).epsilon(0.001));
   REQUIRE((n/1.5).y == Approx(3.267f).epsilon(0.001));
+
+}
+
+TEST_CASE("Struct Mat2 Test", "[Mat2]")
+{
+  // TESTS FOR EX. 2.5
+
+  REQUIRE((p*q).e_00 == 22);
+  REQUIRE((p*q).e_10 == 17);
+  REQUIRE((p*q).e_01 == -15);
+  REQUIRE((p*q).e_11 == -18);
+
+  // OPERATION FOR TEST OF FREE FUNCTION
+  p*=q;
+
+  REQUIRE(p.e_00 == 22);
+  REQUIRE(p.e_10 == 17);
+  REQUIRE(p.e_01 == -15);
+  REQUIRE(p.e_11 == -18);
+
+
+  REQUIRE((r*s).e_00 == 10);
+  REQUIRE((r*s).e_10 == 13);
+  REQUIRE((r*s).e_01 == 22);
+  REQUIRE((r*s).e_11 == 29);
+
+  // OPERATION FOR TEST OF FREE FUNCTION
+  s*=r;
+
+  REQUIRE(s.e_00 == 11);
+  REQUIRE(s.e_10 == 16);
+  REQUIRE(s.e_01 == 19);
+  REQUIRE(s.e_11 == 28);
+
 }
 
 int main(int argc, char *argv[])
