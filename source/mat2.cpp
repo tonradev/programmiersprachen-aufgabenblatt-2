@@ -1,5 +1,4 @@
 #include "mat2.hpp"
-#include <iostream>
 #include <cmath>
 
 // Define member functions
