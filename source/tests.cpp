@@ -2,6 +2,7 @@
 #include <catch.hpp>
 #include "vec2.hpp"
 #include "mat2.hpp"
+#include "color.hpp"
 
 Vec2 a;
 Vec2 b{5.1f, -9.3f};
@@ -147,6 +148,15 @@ TEST_CASE("Struct Mat2 Test", "[Mat2]")
   REQUIRE(t_rot.e_10 == Approx(-0.999f).epsilon(0.1));
   REQUIRE(t_rot.e_01 == Approx(0.999f).epsilon(0.1));
   REQUIRE(t_rot.e_11 == Approx(0.000796f));
+}
+
+TEST_CASE("Color struct test", "[Color]")
+{
+  Color c1{};
+
+  REQUIRE(c1.r == Approx(0.7f));
+  REQUIRE(c1.g == Approx(0.7f));
+  REQUIRE(c1.g == Approx(0.7f));
 }
 
 int main(int argc, char *argv[])
