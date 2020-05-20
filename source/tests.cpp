@@ -154,11 +154,11 @@ TEST_CASE("Struct Mat2 Test", "[Mat2]")
 
 TEST_CASE("Color struct test", "[Color]")
 {
-  Color c1{};
+  Color clr_1{};
 
-  REQUIRE(c1.r == Approx(0.7f));
-  REQUIRE(c1.g == Approx(0.7f));
-  REQUIRE(c1.g == Approx(0.7f));
+  REQUIRE(clr_1.r == Approx(0.7f));
+  REQUIRE(clr_1.g == Approx(0.7f));
+  REQUIRE(clr_1.b == Approx(0.7f));
 }
 
 int main(int argc, char *argv[])
