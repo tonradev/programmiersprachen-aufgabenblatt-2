@@ -161,6 +161,22 @@ TEST_CASE("Color struct test", "[Color]")
   REQUIRE(clr_1.b == Approx(0.7f));
 }
 
+TEST_CASE("Circumference method test", "[circumference]")
+{
+  Circle c1{{1,1}, 0.5f};
+
+  Circle c2{{2,7}, -1.0f};
+
+  Rect r1{{0,0},{1,1}};
+
+  Rect r2{{3.5f,1.7f},{4.9f,3.7f}};
+
+  REQUIRE(c1.circumference() == Approx(3.14159f));
+  REQUIRE(c2.circumference() == 0);
+  REQUIRE(r1.circumference() == Approx(4.0f));
+  REQUIRE(r2.circumference() == Approx(6.8f));
+}
+
 int main(int argc, char *argv[])
 {
   // OPERATIONS FOR EX. 2.3
@@ -176,10 +192,6 @@ int main(int argc, char *argv[])
 
   g /= 2;
   k /= 0.5;
-
-  Circle c1{{1,1}, 0.5f};
-
-  Rect r1{{0,0},{1,1}};
 
   return Catch::Session().run(argc, argv);
 }

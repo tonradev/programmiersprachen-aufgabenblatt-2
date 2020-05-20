@@ -6,6 +6,7 @@ class Rect {
     public:
         Rect() = default;
         Rect(Vec2 const& min, Vec2 const& max);
+        float circumference() const;
     private:
         Vec2 min_{0,0};
         Vec2 max_{1,1};
