@@ -163,13 +163,13 @@ TEST_CASE("Color struct test", "[Color]")
 
 TEST_CASE("Circumference method test", "[circumference]")
 {
-  Circle c1{{1,1}, 0.5f};
+  Circle c1{{1,1}, 0.5f, {0.4,0.1,0.8}};
 
-  Circle c2{{2,7}, -1.0f};
+  Circle c2{{2,7}, -1.0f, {0.1,0.3,0.8}};
 
-  Rect r1{{0,0},{1,1}};
+  Rect r1{{0,0},{1,1}, {0.6,0.6,0.6}};
 
-  Rect r2{{3.5f,1.7f},{4.9f,3.7f}};
+  Rect r2{{3.5f,1.7f}, {4.9f,3.7f}, {0.3,0.1,0.5}};
 
   REQUIRE(c1.circumference() == Approx(3.14159f));
   REQUIRE(c2.circumference() == 0);

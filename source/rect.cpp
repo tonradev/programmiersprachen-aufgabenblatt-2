@@ -1,8 +1,9 @@
 #include "rect.hpp"
 
-Rect::Rect(Vec2 const& min, Vec2 const& max):
+Rect::Rect(Vec2 const& min, Vec2 const& max, Color const& color):
     min_{min},
-    max_{max}
+    max_{max},
+    color_{color}
     {}
 
 float Rect::circumference() const{
