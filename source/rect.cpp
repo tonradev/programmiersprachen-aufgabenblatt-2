@@ -14,3 +14,10 @@ float Rect::circumference() const{
         return (max_.x-min_.x)*2+(max_.y-min_.y)*2;
     }
 }
+
+void Rect::draw(Window const& target) const{
+    target.draw_line(min_.x, min_.y, max_.x, min_.y, color_.r, color_.g, color_.b, 1.0f);
+    target.draw_line(min_.x, min_.y, min_.x, max_.y, color_.r, color_.g, color_.b, 1.0f);
+    target.draw_line(min_.x, max_.y, max_.x, max_.y, color_.r, color_.g, color_.b, 1.0f);
+    target.draw_line(max_.x, max_.y, max_.x, min_.y, color_.r, color_.g, color_.b, 1.0f);
+}

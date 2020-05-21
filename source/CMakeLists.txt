@@ -2,6 +2,10 @@
 add_executable(example
   window.cpp
   glew.c
+  vec2.cpp
+  mat2.cpp
+  rect.cpp
+  circle.cpp
   example.cpp
   )
 target_link_libraries(example
@@ -14,12 +18,13 @@ add_dependencies(example glfw nanovg ${COPY_BINARY})
 
 # Build tests
 add_executable(tests
+  window.cpp
   glew.c
+  tests.cpp
   vec2.cpp
   mat2.cpp
   circle.cpp
   rect.cpp
-  tests.cpp
   )
 target_link_libraries(tests
   glfw
@@ -27,5 +32,4 @@ target_link_libraries(tests
   nanovg
   ${OPENGL_LIBRARIES}
   )
-
 

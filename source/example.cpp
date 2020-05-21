@@ -2,16 +2,22 @@
 #include <GLFW/glfw3.h>
 #include <utility>
 #include <cmath>
+#include "rect.hpp"
+#include "circle.hpp"
 
 
 int main(int argc, char* argv[])
 {
+
   Window win{std::make_pair(800,800)};
+
 
   while (!win.should_close()) {
     if (win.get_key(GLFW_KEY_ESCAPE) == GLFW_PRESS) {
       win.close();
     }
+
+    
 
     bool left_pressed = win.get_mouse_button(GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS;
 
@@ -51,6 +57,13 @@ int main(int argc, char* argv[])
     unsigned int font_size = 35;
     
     win.draw_text(text_offset_x, text_offset_y, font_size, display_text);
+
+    Rect r1{{10.0f,10.0f},{200.0f,200.0f}, {1.0f,0.6f,0.6f}};
+    Circle c1{{400.0f,400.0f}, 50.0f, {0.4,0.1,0.8}};
+    
+    r1.draw(win);
+
+    c1.draw(win);
 
     win.update();
   }

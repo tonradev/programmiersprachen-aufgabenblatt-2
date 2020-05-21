@@ -1,5 +1,8 @@
 #define CATCH_CONFIG_RUNNER
 #include <catch.hpp>
+#include <utility>
+#include <GLFW/glfw3.h>
+#include "window.hpp"
 #include "vec2.hpp"
 #include "mat2.hpp"
 #include "color.hpp"
