@@ -61,7 +61,7 @@ int main(int argc, char* argv[])
     Rect r1{{10.0f,10.0f},{200.0f,200.0f}, {1.0f,0.6f,0.6f}};
     Circle c1{{400.0f,400.0f}, 50.0f, {0.4,0.1,0.8}};
 
-    r1.draw(win);
+    r1.draw(win, 3.0f);
 
     c1.draw(win, 5.0f);
 

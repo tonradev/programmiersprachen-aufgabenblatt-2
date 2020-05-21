@@ -10,6 +10,7 @@ class Rect {
         Rect(Vec2 const& min, Vec2 const& max, Color const& color);
         float circumference() const;
         void draw(Window const& target) const;
+        void draw(Window const& target, float thickness) const;
     private:
         Vec2 min_{0,0};
         Vec2 max_{1,1};

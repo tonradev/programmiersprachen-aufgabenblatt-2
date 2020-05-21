@@ -16,8 +16,13 @@ float Rect::circumference() const{
 }
 
 void Rect::draw(Window const& target) const{
-    target.draw_line(min_.x, min_.y, max_.x, min_.y, color_.r, color_.g, color_.b, 1.0f);
-    target.draw_line(min_.x, min_.y, min_.x, max_.y, color_.r, color_.g, color_.b, 1.0f);
-    target.draw_line(min_.x, max_.y, max_.x, max_.y, color_.r, color_.g, color_.b, 1.0f);
-    target.draw_line(max_.x, max_.y, max_.x, min_.y, color_.r, color_.g, color_.b, 1.0f);
+    draw(target, 1.0f);
+}
+
+void Rect::draw(Window const& target, float thickness) const{
+    float thickness_ = thickness;
+    target.draw_line(min_.x, min_.y, max_.x, min_.y, color_.r, color_.g, color_.b, thickness_);
+    target.draw_line(min_.x, min_.y, min_.x, max_.y, color_.r, color_.g, color_.b, thickness_);
+    target.draw_line(min_.x, max_.y, max_.x, max_.y, color_.r, color_.g, color_.b, thickness_);
+    target.draw_line(max_.x, max_.y, max_.x, min_.y, color_.r, color_.g, color_.b, thickness_);
 }
