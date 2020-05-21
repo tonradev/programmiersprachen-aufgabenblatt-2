@@ -19,6 +19,11 @@ float Circle::circumference() const{
 }
 
 void Circle::draw(Window const& target) const {
+    draw(target, 1.0f);
+}
+
+void Circle::draw(Window const& target, float thickness) const {
+    float thickness_ = thickness;
     Vec2 start_point{(center_.x+radius_), center_.y};
     // target.draw_point((center_.x+radius_),center_.y, color_.r, color_.g, color_.b);
     // target.draw_point(center_.x,center_.y, 0.0f, 0.0f, 0.0f);
@@ -29,7 +34,7 @@ void Circle::draw(Window const& target) const {
         end_point = make_rotation_mat2(((360/segments)*M_PI/180))*end_point;
         end_point+=center_;
         // target.draw_point(end_point.x, end_point.y, color_.r, color_.g, color_.b);
-        target.draw_line(start_point.x, start_point.y, end_point.x, end_point.y, color_.r, color_.g, color_.b, 1.0f);
+        target.draw_line(start_point.x, start_point.y, end_point.x, end_point.y, color_.r, color_.g, color_.b, thickness_);
         start_point = end_point;
     }
 }
