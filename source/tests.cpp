@@ -180,6 +180,30 @@ TEST_CASE("Circumference method test", "[circumference]")
   REQUIRE(r2.circumference() == Approx(6.8f));
 }
 
+TEST_CASE("is_inside method test", "[is_inside]")
+{
+  Rect r1{{10.0f,10.0f},{200.0f,200.0f}, {1.0f,0.6f,0.6f}};
+  Circle c1{{400.0f,400.0f}, 50.0f, {0.4,0.1,0.8}};
+  Rect r2{{400.0f,300.0f},{500.5f,670.0f}, {0.5f,0.8f,0.7f}};
+  Circle c2{{145.0f,560.0f}, 96.3f, {1,0.1,0.8}};
+  Vec2 p1{367.0f, 410.2f};
+  Vec2 p2{424.4f, 387.2f};
+  Vec2 p3{-69.4f, 565.9f};
+
+  REQUIRE(c1.is_inside(p1) == true);
+  REQUIRE(c2.is_inside(p1) == false);
+  REQUIRE(r1.is_inside(p1) == false);
+  REQUIRE(r2.is_inside(p1) == false);
+  REQUIRE(c1.is_inside(p2) == true);
+  REQUIRE(c2.is_inside(p2) == false);
+  REQUIRE(r1.is_inside(p2) == false);
+  REQUIRE(r2.is_inside(p2) == true);
+  REQUIRE(c1.is_inside(p3) == false);
+  REQUIRE(c2.is_inside(p3) == false);
+  REQUIRE(r1.is_inside(p3) == false);
+  REQUIRE(r2.is_inside(p3) == false);
+}
+
 int main(int argc, char *argv[])
 {
   // OPERATIONS FOR EX. 2.3

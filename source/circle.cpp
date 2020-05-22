@@ -38,3 +38,12 @@ void Circle::draw(Window const& target, float thickness) const {
         start_point = end_point;
     }
 }
+
+bool Circle::is_inside(Vec2 const& point) const{
+    if (point.x >= center_.x-radius_ && point.x <= center_.x+radius_ && point.y >= center_.y-radius_ && point.y <= center_.y+radius_) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}

@@ -4,6 +4,7 @@
 #include <cmath>
 #include "rect.hpp"
 #include "circle.hpp"
+#include <iostream>
 
 
 int main(int argc, char* argv[])
@@ -60,10 +61,30 @@ int main(int argc, char* argv[])
 
     Rect r1{{10.0f,10.0f},{200.0f,200.0f}, {1.0f,0.6f,0.6f}};
     Circle c1{{400.0f,400.0f}, 50.0f, {0.4,0.1,0.8}};
+    Rect r2{{400.0f,300.0f},{500.5f,670.0f}, {0.5f,0.8f,0.7f}};
+    Circle c2{{145.0f,560.0f}, 96.3f, {1,0.1,0.8}};
 
     r1.draw(win, 3.0f);
+    r2.draw(win, 1.2f);
 
     c1.draw(win, 5.0f);
+    c2.draw(win, 2.4f);
+
+    std::array<Circle, 2> circles = {c1, c2};
+
+    std::array<Rect, 2> rectangles = {r1, r2};
+
+    for (Circle circle: circles) {
+      if(circle.is_inside({win.mouse_position().first, win.mouse_position().second}) == true) {
+        circle.draw(win, 6.0f);
+      }
+    }
+
+    for (Rect rectangle: rectangles) {
+      if(rectangle.is_inside({win.mouse_position().first, win.mouse_position().second}) == true) {
+        rectangle.draw(win, 6.0f);
+      }
+    }
 
     win.update();
   }

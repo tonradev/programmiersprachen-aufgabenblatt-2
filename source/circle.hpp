@@ -11,6 +11,7 @@ class Circle {
         float circumference() const;
         void draw(Window const& target) const;
         void draw(Window const& target, float thickness) const;
+        bool is_inside(Vec2 const& point) const;
     private:
         Vec2 center_{0,0};
         float radius_{1.0f};

@@ -11,6 +11,7 @@ class Rect {
         float circumference() const;
         void draw(Window const& target) const;
         void draw(Window const& target, float thickness) const;
+        bool is_inside(Vec2 const& point) const;
     private:
         Vec2 min_{0,0};
         Vec2 max_{1,1};

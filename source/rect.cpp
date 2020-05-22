@@ -26,3 +26,12 @@ void Rect::draw(Window const& target, float thickness) const{
     target.draw_line(min_.x, max_.y, max_.x, max_.y, color_.r, color_.g, color_.b, thickness_);
     target.draw_line(max_.x, max_.y, max_.x, min_.y, color_.r, color_.g, color_.b, thickness_);
 }
+
+bool Rect::is_inside(Vec2 const& point) const{
+    if (point.x >= min_.x && point.x <= max_.x && point.y >= min_.y && point.y <= max_.y) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
