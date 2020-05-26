@@ -1,9 +1,9 @@
 #include "window.hpp"
+#include "rect.hpp"
+#include "circle.hpp"
 #include <GLFW/glfw3.h>
 #include <utility>
 #include <cmath>
-#include "rect.hpp"
-#include "circle.hpp"
 #include <iostream>
 
 
@@ -76,13 +76,13 @@ int main(int argc, char* argv[])
 
     for (Circle circle: circles) {
       if(circle.is_inside({win.mouse_position().first, win.mouse_position().second}) == true) {
-        circle.draw(win, (circle.thickness_*2));
+        circle.draw(win, (circle.thickness()*2));
       }
     }
 
     for (Rect rectangle: rectangles) {
       if(rectangle.is_inside({win.mouse_position().first, win.mouse_position().second}) == true) {
-        rectangle.draw(win, (rectangle.thickness_*2));
+        rectangle.draw(win, (rectangle.thickness()*2));
       }
     }
 

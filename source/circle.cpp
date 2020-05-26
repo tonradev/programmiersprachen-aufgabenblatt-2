@@ -1,6 +1,6 @@
 #include "circle.hpp"
-#include <cmath>
 #include "mat2.hpp"
+#include <cmath>
 #include <iostream>
 
 Circle::Circle(Vec2 const& center, float radius, Color const& color):
@@ -18,6 +18,9 @@ float Circle::circumference() const{
     }
 }
 
+float Circle::thickness() const{
+    return thickness_;
+}
 
 void Circle::draw(Window const& target, float thickness = 1.0f) {
     thickness_ = thickness;

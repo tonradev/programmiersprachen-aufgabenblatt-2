@@ -15,6 +15,9 @@ float Rect::circumference() const{
     }
 }
 
+float Rect::thickness() const{
+    return thickness_;
+}
 
 void Rect::draw(Window const& target, float thickness = 1.0f) {
     thickness_ = thickness;

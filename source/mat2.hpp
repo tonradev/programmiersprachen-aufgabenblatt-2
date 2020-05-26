@@ -2,8 +2,8 @@
 #ifndef MAT2_HPP
 #define MAT2_HPP
 
-#include <array>
 #include "vec2.hpp"
+#include <array>
 
 struct Mat2 {
 

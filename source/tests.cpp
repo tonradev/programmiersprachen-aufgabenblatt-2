@@ -1,13 +1,13 @@
 #define CATCH_CONFIG_RUNNER
-#include <catch.hpp>
-#include <utility>
-#include <GLFW/glfw3.h>
 #include "window.hpp"
 #include "vec2.hpp"
 #include "mat2.hpp"
 #include "color.hpp"
 #include "circle.hpp"
 #include "rect.hpp"
+#include <catch.hpp>
+#include <utility>
+#include <GLFW/glfw3.h>
 
 Vec2 a;
 Vec2 b{5.1f, -9.3f};
