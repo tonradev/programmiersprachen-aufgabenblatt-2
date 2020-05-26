@@ -76,13 +76,13 @@ int main(int argc, char* argv[])
 
     for (Circle circle: circles) {
       if(circle.is_inside({win.mouse_position().first, win.mouse_position().second}) == true) {
-        circle.draw(win, 6.0f);
+        circle.draw(win, (circle.thickness_*2));
       }
     }
 
     for (Rect rectangle: rectangles) {
       if(rectangle.is_inside({win.mouse_position().first, win.mouse_position().second}) == true) {
-        rectangle.draw(win, 6.0f);
+        rectangle.draw(win, (rectangle.thickness_*2));
       }
     }
 

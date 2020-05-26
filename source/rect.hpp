@@ -9,9 +9,9 @@ class Rect {
         Rect() = default;
         Rect(Vec2 const& min, Vec2 const& max, Color const& color);
         float circumference() const;
-        void draw(Window const& target) const;
-        void draw(Window const& target, float thickness) const;
+        void draw(Window const& target, float thickness);
         bool is_inside(Vec2 const& point) const;
+        float thickness_{1.0f};
     private:
         Vec2 min_{0,0};
         Vec2 max_{1,1};

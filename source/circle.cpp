@@ -18,12 +18,9 @@ float Circle::circumference() const{
     }
 }
 
-void Circle::draw(Window const& target) const {
-    draw(target, 1.0f);
-}
 
-void Circle::draw(Window const& target, float thickness) const {
-    float thickness_ = thickness;
+void Circle::draw(Window const& target, float thickness = 1.0f) {
+    thickness_ = thickness;
     Vec2 start_point{(center_.x+radius_), center_.y};
     // target.draw_point((center_.x+radius_),center_.y, color_.r, color_.g, color_.b);
     // target.draw_point(center_.x,center_.y, 0.0f, 0.0f, 0.0f);
